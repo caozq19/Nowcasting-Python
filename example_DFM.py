@@ -64,8 +64,8 @@ fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)'} ,
                   showlegend=False)
 fig.update_yaxes(title_text=Spec.Units[idxSeries], row=1, col=1)
 fig.update_yaxes(title_text=Spec.UnitsTransformed[idxSeries], row=2, col=1)
-fig.show()
-
+# fig.show()
+fig.write_html("temp_plot.html", auto_open=True)
 
 #-------------------------------------------------Run dynamic factor model (DFM) and save estimation output as 'ResDFM'.
 threshold = 1e-4 # Set to 1e-5 for more robust estimates
@@ -90,7 +90,9 @@ fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)'} ,
 )
 fig.update_yaxes(title_text="LogLik")
 fig.update_xaxes(title_text="Number of steps")
-fig.show()
+# fig.show()
+fig.write_html("temp_plot.html", auto_open=True)
+
 
 
 #-------------------------------------------------Plot common factor and standardized data.
@@ -117,7 +119,9 @@ fig.add_trace(go.Scatter(x=[dt.fromordinal(i - 366).strftime('%Y-%m-%d') for i i
 fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)'} ,
                   title_text="Common Factor and Standardized Data"
 )
-fig.show()
+# fig.show()
+fig.write_html("temp_plot.html", auto_open=True)
+
 
 
 #-------------------------------------------------Plot projection of common factor onto Payroll Employment and GDP
@@ -155,4 +159,5 @@ for i in range(len(series)):
 
 fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)'} ,
                   title_text="Projection of Common Factor")
-fig.show()
+# fig.show()
+fig.write_html("temp_plot.html", auto_open=True)
